@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Green Belt Introduction Writer</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a single writing column; four numbered moves, then the assembled paragraph and the hand-in box */
+:root{
+  --bg:#eef2ed;--surface:#fff;--sunk:#e3e9e3;--ink:#15261d;--muted:#56685d;--line:#cdd8cf;--accent:#1d5a43;--accent-ink:#fff;--ok:#2c8a4e;--bad:#bf3f37;
+  --display:"Young Serif",Georgia,serif;--body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#101814;--surface:#18221d;--sunk:#141d18;--ink:#e4ebe6;--muted:#9bada2;--line:#2b3a32;--accent:#7cc8a2;--accent-ink:#0e1a14;--ok:#6fcf91;--bad:#f08a80;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#101814;--surface:#18221d;--sunk:#141d18;--ink:#e4ebe6;--muted:#9bada2;--line:#2b3a32;--accent:#7cc8a2;--accent-ink:#0e1a14;--ok:#6fcf91;--bad:#f08a80;color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55;margin:0}
+.wrap{max-width:860px;margin:0 auto;padding-inline:18px;padding-block:24px 64px;display:flex;flex-direction:column;gap:20px}
+h1,h2{font-family:var(--display);font-weight:400;margin:0;text-wrap:balance}
+h1{font-size:1.8em;line-height:1.15} h2{font-size:1.2em}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:.72em;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+button,input,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.btn{border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:.45em .9em;font-size:.88em}
+.btn:hover{border-color:var(--accent)}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.task{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px;display:flex;flex-direction:column;gap:8px}
+.task ul{margin:0;padding-left:1.2em}
+input.txt,textarea{border:1px solid var(--line);border-radius:8px;background:var(--surface);padding:.5em .7em;width:100%;color:var(--ink)}
+textarea{resize:vertical;min-height:3.4em;line-height:1.45}
+.move{display:grid;grid-template-columns:2.4em 1fr;gap:6px 14px;border-top:1px solid var(--line);padding-top:16px}
+.num{font-family:var(--display);font-size:1.8em;line-height:1;color:var(--accent)}
+.move .body{display:flex;flex-direction:column;gap:8px;min-width:0}
+.tip{font-size:.88em;color:var(--muted)}
+.tip b{color:var(--ink)}
+.bank{display:flex;flex-wrap:wrap;gap:6px}
+.bank span{background:var(--sunk);border-radius:6px;padding:.2em .55em;font-size:.82em}
+.bank em{font-style:normal;color:var(--muted);font-family:var(--mono);font-size:.85em;margin-left:4px}
+.titles{display:flex;flex-direction:column;gap:6px}
+.titles label{display:grid;grid-template-columns:2.2em 1fr;align-items:center;gap:8px;font-family:var(--display)}
+.out{background:var(--surface);border:2px solid var(--accent);border-radius:12px;padding:18px 20px;line-height:1.7}
+.empty{color:var(--muted);font-style:italic}
+.wc{font-family:var(--mono);font-size:.85em;font-variant-numeric:tabular-nums}
+.wc.ok{color:var(--ok)} .wc.bad{color:var(--bad)}
+.check{display:flex;flex-direction:column;gap:6px;font-size:.92em}
+.check label{display:flex;gap:10px;align-items:flex-start}
+.check input{accent-color:var(--accent);width:1.1em;height:1.1em;margin-top:.3em}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between}
+.handin{background:var(--accent);color:var(--accent-ink);border-radius:12px;padding:16px 18px;display:flex;flex-direction:column;gap:8px}
+.handin a{color:inherit;font-weight:700;word-break:break-all}
+.handin .btn{color:var(--ink)}
+.handin ol{margin:0;padding-left:1.3em}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header style="display:flex;flex-direction:column;gap:6px">
+    <span class="eyebrow">Terminale LLCER AMC · London's green spaces · Individual work</span>
+    <h1>Write your introduction</h1>
+  </header>
+
+  <div class="task">
+    <span class="eyebrow">The task</span>
+    <p><i>Taking into account their specificities and viewpoints, say what the documents show about green space management in and around London.</i></p>
+    <ul class="tip"><li>Four moves, in this order. Aim for <b>80 to 100 words</b>.</li><li>No analysis and no quotes in the introduction.</li><li>Your work is saved in this browser, but hand it in before you close the page.</li></ul>
+  </div>
+
+  <label style="display:flex;flex-direction:column;gap:4px"><span class="eyebrow">Your first and last name</span><input class="txt" id="name" placeholder="First name LAST NAME" autocomplete="name"></label>
+
+  <div class="move">
+    <span class="num">1</span>
+    <div class="body">
+      <h2>The hook</h2>
+      <p class="tip">A general sentence on the theme of <b>changing environments</b> and cities. Do not mention the documents yet.</p>
+      <textarea id="hook" aria-label="Hook" placeholder="In an age of climate change, …"></textarea>
+      <div class="bank"><span>In an age of climate change,…</span><span>Cities around the world are increasingly concerned with…</span><span>Access to nature has become…</span><span>As cities keep growing,…</span></div>
+    </div>
+  </div>
+
+  <div class="move">
+    <span class="num">2</span>
+    <div class="body">
+      <h2>The set of documents</h2>
+      <p class="tip">Present the documents <b>as a whole</b>, in one or two sentences. Do not list every source and date: mention a detail only if it is interesting (a period, a common source, a variety of documents or viewpoints).</p>
+      <textarea id="pres" aria-label="Presentation of the documents" placeholder="The set of documents, published between… and…, …"></textarea>
+      <div class="bank"><span>The set of documents, published between… and…, deals with…</span><span>This corpus combines…</span><span>Two of the documents come from the same British newspaper, yet…</span><span>The documents give voice to…</span></div>
+    </div>
+  </div>
+
+  <div class="move">
+    <span class="num">3</span>
+    <div class="body">
+      <h2>The problem</h2>
+      <p class="tip">Your own "To what extent" question, written as an <b>indirect question</b>: no inversion, no question mark.</p>
+      <textarea id="prob" aria-label="Problem" placeholder="We may therefore wonder to what extent…"></textarea>
+      <div class="bank"><span>We may therefore wonder to what extent London <b>is</b>… <em>not "is London"</em></span><span>This raises the question of how far…</span><span>It is therefore worth examining whether…</span></div>
+    </div>
+  </div>
+
+  <div class="move">
+    <span class="num">4</span>
+    <div class="body">
+      <h2>The announcement of the plan</h2>
+      <p class="tip">Copy the titles of the parts <b>we wrote together</b>, then click the button: the announcement is built for you. You can edit it afterwards.</p>
+      <div class="titles">
+        <label for="t1"><span>I.</span><input class="txt" id="t1" placeholder="the role of…"></label>
+        <label for="t2"><span>II.</span><input class="txt" id="t2" placeholder="the unequal access of…"></label>
+        <label for="t3"><span>III.</span><input class="txt" id="t3" placeholder="the challenges raised by… (leave empty if you have 2 parts)"></label>
+      </div>
+      <button class="btn" id="build" style="align-self:flex-start">Build my announcement</button>
+      <textarea id="ann" aria-label="Announcement of the plan" placeholder="First, we will examine… Then, we will focus on… Finally, we will consider…"></textarea>
+    </div>
+  </div>
+
+  <div class="row"><span class="eyebrow">Your introduction</span><span class="wc" id="wc"></span></div>
+  <div class="out" id="out"></div>
+
+  <div class="task">
+    <span class="eyebrow">Check before handing in</span>
+    <div class="check">
+      <label><input type="checkbox">My hook is general and does not mention the documents.</label>
+      <label><input type="checkbox">I present the documents as a whole, without listing them.</label>
+      <label><input type="checkbox">My problem starts with "to what extent" and has no inversion.</label>
+      <label><input type="checkbox">My announcement uses the titles of our parts word for word.</label>
+      <label><input type="checkbox">My introduction has 80 to 100 words.</label>
+      <label><input type="checkbox">I have checked my spelling and my linking words.</label>
+    </div>
+  </div>
+
+  <div class="handin">
+    <span class="eyebrow" style="color:inherit;opacity:.8">Hand in your work</span>
+    <ol>
+      <li>Click <b>Copy my introduction</b>.</li>
+      <li>Open our Digipad: <a href="https://digipad.app/p/1902481/477ee73c37eef8" target="_blank" rel="noopener">digipad.app/p/1902481/477ee73c37eef8</a></li>
+      <li>Add a new post. Its <b>title is your first and last name</b>.</li>
+      <li>Paste your introduction in the text of the post and publish it.</li>
+    </ol>
+    <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn" id="copy">Copy my introduction</button><button class="btn" id="copyName">Copy my name</button><button class="btn" id="copyLink">Copy the Digipad link</button></div>
+  </div>
+</div>
+
+<script>
+const IDS=["name","hook","pres","prob","t1","t2","t3","ann"];
+const KEY="green-belt-intro-student-v1";
+let S={};try{S=JSON.parse(localStorage.getItem(KEY)||"{}")||{}}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
+const $=id=>document.getElementById(id);
+const esc=t=>String(t).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const text=()=>["hook","pres","prob","ann"].map(k=>(S[k]||"").trim()).filter(Boolean).join(" ");
+function update(){
+  const t=text(),w=t?t.split(/\s+/).length:0;
+  $("out").innerHTML=t?esc(t):`<span class="empty">Your four moves will appear here as one paragraph.</span>`;
+  $("wc").className="wc "+(w===0?"":(w>=80&&w<=100?"ok":"bad"));
+  $("wc").textContent=`${w} words · target 80–100`;
+}
+IDS.forEach(id=>{$(id).value=S[id]||"";$(id).addEventListener("input",e=>{S[id]=e.target.value;save();update()})});
+const lc=t=>{t=t.trim().replace(/[.!?:]+$/,"");return t.charAt(0).toLowerCase()+t.slice(1)};
+$("build").onclick=()=>{
+  const ts=["t1","t2","t3"].map(k=>(S[k]||"").trim()).filter(Boolean).map(lc);
+  if(!ts.length){$("t1").focus();return}
+  const lead=ts.length===3?["First, we will examine","Then, we will focus on","Finally, we will consider"]:["First, we will examine","Then, we will focus on"];
+  S.ann=ts.map((t,i)=>`${lead[i]||"Then, we will look at"} ${t}.`).join(" ");
+  $("ann").value=S.ann;save();update();
+};
+async function copy(btn,val,label,selectEl){
+  if(!val){btn.textContent="Nothing to copy yet";setTimeout(()=>btn.textContent=label,2200);return}
+  try{await navigator.clipboard.writeText(val);btn.textContent="Copied"}
+  catch(e){const r=document.createRange();r.selectNodeContents(selectEl);const s=getSelection();s.removeAllRanges();s.addRange(r);btn.textContent="Selected: press Ctrl+C"}
+  setTimeout(()=>btn.textContent=label,2500);
+}
+$("copy").onclick=e=>copy(e.target,text(),"Copy my introduction",$("out"));
+$("copyName").onclick=e=>{const v=(S.name||"").trim();if(!v){$("name").focus();return}copy(e.target,v,"Copy my name",$("name"))};
+$("copyLink").onclick=e=>copy(e.target,"https://digipad.app/p/1902481/477ee73c37eef8","Copy the Digipad link",document.querySelector(".handin a"));
+update();
+</script>
+</body>
+</html>
